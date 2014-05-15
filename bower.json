@@ -1,0 +1,20 @@
+{
+  "name": "notesREST",
+  "version": "0.0.0",
+  "homepage": "https://github.com/codefellows/javascript-b15-notes",
+  "authors": [
+    "Nick Harberg <nick@seamonsterstudios.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
