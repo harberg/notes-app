@@ -14,3 +14,4 @@ Note Taking App
 ####Extra Features
 * Ajax requests to json api
 * Tests currently pass
+* Learning happened
