@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     watch: {
       options: {
         livereload: true
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('build', ['clean', 'browserify', 'copy']);  
+  grunt.registerTask('build', ['clean', 'browserify', 'copy']);
   grunt.registerTask('server', ['build', 'express:dev', 'watch']);
   grunt.registerTask('test',['express:dev','simplemocha','casper', 'mocha' ]);
 
