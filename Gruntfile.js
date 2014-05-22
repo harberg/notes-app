@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 
     browserify: {
       all: {
-        src: 'app/js/*.js',
+        src: 'app/js/**/*.js',
         dest: 'dist/client.js'
       },
       options: {
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('build', ['clean', 'browserify', 'copy']);
-  grunt.registerTask('server', ['build', 'express:dev', 'watch']);
+  grunt.registerTask('serve', ['build', 'express:dev', 'watch']);
   grunt.registerTask('test',['express:dev','simplemocha','casper', 'mocha' ]);
 
 };

@@ -34,3 +34,28 @@ module.exports.create = function(req, res) {
         res.send(newNote);
     });
 };
+
+exports.update = function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  var id = req.params.id;
+  delete req.body._id;
+
+  Note.findOneAndUpdate({'_id' : id}, req.body, function(err, note) {
+    if (err) {
+      res.send(500, {error: err});
+    } else {
+      res.send(note);
+    }
+  });
+};
+
+exports.destroy = function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  Note.remove({'_id' : req.params.id}, function(err) {
+    if(err) {
+      res.send(500, {error: err});
+      return false;
+    }
+    res.send({'message' : 'success!'});
+  });
+};

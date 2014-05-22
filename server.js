@@ -2,7 +2,7 @@
 var express  = require('express');
 var http     = require('http');
 var mongoose = require('mongoose');
-var noteRoutes = require('./routes/noteRoutes');
+var noteRoutes = require('./api/routes/noteRoutes');
 var bodyparser = require('body-parser');
 
 var app = express();
@@ -14,6 +14,8 @@ app.use(express.static(__dirname + '/dist'));
 app.get('/api/v0_0_1/notes', noteRoutes.collection);
 app.get('/api/v0_0_1/notes/:id', noteRoutes.findById);
 app.post('/api/v0_0_1/notes', noteRoutes.create);
+app.put('/api/v0_0_1/notes/:id', noteRoutes.update);
+app.delete('api/v0_0_1/notes/:id', noteRoutes.destroy);
 
 mongoose.connect('mongodb://localhost/notes-development');
 
