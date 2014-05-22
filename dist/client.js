@@ -12234,7 +12234,6 @@ var $ = require("./../../bower_components/jquery/dist/jquery.js");
 var _ = require("./../../bower_components/underscore/underscore.js");
 
 module.exports = Backbone.View.extend({
-    className: 'note',
 
     initialize: function() {
         this.render();

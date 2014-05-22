@@ -3,7 +3,6 @@ var $ = require('jquery');
 var _ = require('underscore');
 
 module.exports = Backbone.View.extend({
-    className: 'note',
 
     initialize: function() {
         this.render();
