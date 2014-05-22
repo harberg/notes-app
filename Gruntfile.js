@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         dest: 'dist/client.js'
       },
       options: {
-        transform: ['debowerify'],
+        transform: ['debowerify', 'hbsfy'],
         debug: true
       }
     },
@@ -100,12 +100,28 @@ module.exports = function(grunt) {
       },
     },
 
+    shell: {
+      mongodb: {
+        command: 'mongod --dbpath ./db',
+        options: {
+          async: true,
+          stdout: false,
+          stderr: true,
+          failOnError: true,
+          execOptions: {
+            cwd: '.'
+          }
+        }
+      }
+    },
+
+
   });
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('build', ['clean', 'browserify', 'copy']);
-  grunt.registerTask('serve', ['build', 'express:dev', 'watch']);
+  grunt.registerTask('serve', ['shell', 'build', 'express:dev', 'watch']);
   grunt.registerTask('test',['express:dev','simplemocha','casper', 'mocha' ]);
 
 };
