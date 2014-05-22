@@ -6,6 +6,7 @@ Note Taking App
 * Mongoose
 * NodeJS
 * Express
+* Backbone
 
 ####Testing with
 * Mocha and Chai
