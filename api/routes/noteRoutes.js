@@ -35,7 +35,7 @@ module.exports.create = function(req, res) {
     });
 };
 
-exports.update = function(req, res) {
+module.exports.update = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   var id = req.params.id;
   delete req.body._id;
@@ -49,7 +49,7 @@ exports.update = function(req, res) {
   });
 };
 
-exports.destroy = function(req, res) {
+module.exports.destroy = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   Note.remove({'_id' : req.params.id}, function(err) {
     if(err) {
